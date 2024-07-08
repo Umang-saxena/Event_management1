@@ -1,0 +1,14 @@
+Table structure for table `venue`
+
+create table Venues 
+(Venue_ID int auto_increment, Name char(50) , Owner_Name char(50), Owner_Number bigint , price int , address char(100), primary key(Venue_ID));
+
+Table structure for table `events`
+
+create table Events
+(Event_ID int auto_increment , Event_Date DATE , Event_Name char(50) , Start_Time time , End_Time time , Client_ID int , Venue_ID int , status bool , primary key(Event_ID) ,  foreign key (Client_ID) references Clients(Client_ID) , foreign key (Venue_ID) references Venues(Venue_ID));
+
+Table structure for table `clients`
+
+create table Clients
+(Client_ID int auto_increment, Name char(50), Phone bigint , email varchar(30), primary key(Client_ID));
