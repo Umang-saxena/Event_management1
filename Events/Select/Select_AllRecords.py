@@ -2,7 +2,7 @@ import streamlit as st
 
 def selectAll(mycursor,mydb):
     st.header("All Events")
-    mycursor.execute('SELECT * FROM events')
+    mycursor.execute('SELECT * FROM Events')
     event_list = mycursor.fetchall()
 
     for event in event_list:

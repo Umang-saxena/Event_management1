@@ -9,12 +9,12 @@ def createEvent(mycursor,mydb):
     end_time = st.time_input("End Time")
 
     # Fetch venue list from database
-    mycursor.execute('SELECT * FROM venues')
+    mycursor.execute('SELECT * FROM Venues')
     venue_list = mycursor.fetchall()
     venue_id = st.selectbox("Select Venue", [f"{venue[0]}: {venue[1]}" for venue in venue_list])
 
     # Fetch client list from database
-    mycursor.execute('SELECT * FROM clients')
+    mycursor.execute('SELECT * FROM Clients')
     client_list = mycursor.fetchall()
     client_id = st.selectbox("Select Client", [f"{client[0]}: {client[1]}" for client in client_list])
 
@@ -23,7 +23,7 @@ def createEvent(mycursor,mydb):
     if st.button("Create Event"):
         try:
             query = """
-            INSERT INTO events (Event_Date, Event_Name, Start_Time, End_Time, Client_ID, Venue_ID, status)
+            INSERT INTO Events (Event_Date, Event_Name, Start_Time, End_Time, Client_ID, Venue_ID, status)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
             """
             values = (event_date, event_name, start_time, end_time, int(client_id.split(":")[0]), int(venue_id.split(":")[0]), status == "On Schedule")
