@@ -1,2 +1,2 @@
-mysql.connector
-mysql-connector-python
+streamlit
+mysql-connector-python==8.3.0  # or latest stable version
