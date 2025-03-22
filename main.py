@@ -1,7 +1,7 @@
 import streamlit as st
 import mysql.connector
 mydb = mysql.connector.connect(
-    host="localhost",
+    host="st.secrets['db_host']",
     user=st.secrets["db_username"],
     password=st.secrets["db_password"], 
     database=st.secrets["db_database"]
