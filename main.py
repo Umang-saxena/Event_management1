@@ -1,3 +1,4 @@
+import streamlit as st
 import mysql.connector
 mydb = mysql.connector.connect(
     host="localhost",
@@ -8,7 +9,6 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 
-import streamlit as st
 from Events.Select.Select_AllRecords import selectAll 
 from Events.Create.CreateClient import createClient
 from Events.Create.CreateVenue import createVenue
