@@ -5,6 +5,7 @@ __pycache__/
  SQLQyueries.txt
 # C extensions
 *.so
+secrets.toml
 
 # Distribution / packaging
 .Python

@@ -1,9 +1,9 @@
 import mysql.connector
 mydb = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="umang", 
-    database="event_management"
+    user=st.secrets["db_username"],
+    password=st.secrets["db_password"], 
+    database=st.secrets["db_database"]
 )
 mycursor = mydb.cursor()
 
