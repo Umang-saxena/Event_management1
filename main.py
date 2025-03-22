@@ -1,11 +1,7 @@
 import streamlit as st
 import mysql.connector
 mydb = mysql.connector.connect(
-<<<<<<< HEAD
-    host=st.secrets["db_host"],
-=======
     host=st.secrets['db_host'],
->>>>>>> c42b02ee78e0083de9e6ad44a3c5f4a5469cdb14
     user=st.secrets["db_username"],
     password=st.secrets["db_password"], 
     database=st.secrets["db_database"],
@@ -25,15 +21,15 @@ from Events.Update.EventStatus import updateStatus
 # Define the tables and their creation SQL
 tables = {
     "Clients": """
-        create table Clients
+        create table IF NOT EXISTS Clients
 (Client_ID int auto_increment, Name char(50), Phone bigint , email varchar(30), primary key(Client_ID));
     """,
     "Venues": """
-        create table Venues 
+        create table IF NOT EXISTS Venues 
 (Venue_ID int auto_increment, Name char(50) , Owner_Name char(50), Owner_Number bigint , price int , address char(100), primary key(Venue_ID));
     """,
     "Events": """
-        create table Events
+        create table IF NOT EXISTS Events
 (Event_ID int auto_increment , Event_Date DATE , Event_Name char(50) , Start_Time time , End_Time time , Client_ID int , Venue_ID int , status bool , primary key(Event_ID) ,  foreign key (Client_ID) references Clients(Client_ID) , foreign key (Venue_ID) references Venues(Venue_ID));
         )
     """
